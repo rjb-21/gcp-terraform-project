@@ -10,6 +10,6 @@ variable "region" {
 
 variable "app_name" {
   description = "Test application name"
-  type        = "string
-  default     = 'terraform-helloworld-app"
+  type        = string
+  default     = "terraform-helloworld-app"
 }

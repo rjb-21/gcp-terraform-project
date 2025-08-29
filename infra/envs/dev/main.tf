@@ -13,3 +13,10 @@ provider "google" {
   project = var.project_id
   region  = var.region
 }
+
+module "storage" {
+  source    = "../../modules/storage"
+  project_id = var.project_id
+  app_name   = var.app_name
+  location     = var.region
+}

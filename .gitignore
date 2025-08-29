@@ -10,3 +10,4 @@ override.tf.json
 
 # backend konfiguracje (lokalne)
 infra/envs/*/backend.hcl
+infra/envs/*/terraform.tfvars

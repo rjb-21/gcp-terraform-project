@@ -49,6 +49,12 @@ module "sql" {
   subnet      = module.network.subnet_self_link
 }
 
+module "iam" {
+  source     = "../../modules/iam"
+  project_id = var.project_id
+  app_name   = var.app_name
+}
+
 module "vm" {
   source     = "../../modules/vm"
   project_id = var.project_id
@@ -57,4 +63,7 @@ module "vm" {
   app_name   = var.app_name
   network    = module.network.network_self_link
   subnet     = module.network.subnet_self_link
+  service_account_email = module.iam.app_sa_email
 }
+
+

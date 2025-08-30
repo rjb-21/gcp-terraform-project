@@ -34,6 +34,11 @@ resource "google_compute_instance" "vm" {
     access_config {}
   }
 
+  service_account {
+  email  =  var.service_account_email
+  scopes = ["cloud-platform"]
+}
+
   metadata_startup_script = <<-EOT
     #!/bin/bash
     apt-get update

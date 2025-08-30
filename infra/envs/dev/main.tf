@@ -15,10 +15,10 @@ provider "google" {
 }
 
 module "storage" {
-  source    = "../../modules/storage"
+  source     = "../../modules/storage"
   project_id = var.project_id
   app_name   = var.app_name
-  location     = var.location_bucket
+  location   = var.location_bucket
 }
 
 module "secrets" {
@@ -28,7 +28,7 @@ module "secrets" {
   secrets = {
     db_password = var.db_password
     api_key     = var.api_key
-    }
+  }
 }
 
 module "network" {
@@ -40,11 +40,21 @@ module "network" {
 
 
 module "sql" {
-    source = "../../modules/sql"
-    project_id = var.project_id
-    region = var.region
-    app_name = var.app_name
-    db_password = var.db_password
-    network = module.network.network_self_link
-    subnet  = module.network.subnet_self_link
+  source      = "../../modules/sql"
+  project_id  = var.project_id
+  region      = var.region
+  app_name    = var.app_name
+  db_password = var.db_password
+  network     = module.network.network_self_link
+  subnet      = module.network.subnet_self_link
+}
+
+module "vm" {
+  source     = "../../modules/vm"
+  project_id = var.project_id
+  region     = var.region
+  zone       = "europe-central2-a"
+  app_name   = var.app_name
+  network    = module.network.network_self_link
+  subnet     = module.network.subnet_self_link
 }

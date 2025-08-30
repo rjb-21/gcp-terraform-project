@@ -13,3 +13,14 @@ variable "app_name" {
   type        = string
   default     = "terraform-helloworld-app"
 }
+
+variable "db_password" {
+  type      = string
+  sensitive = true
+}
+
+variable "api_key" {
+  type      = string
+  sensitive = true
+}
+

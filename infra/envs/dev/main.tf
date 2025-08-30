@@ -20,3 +20,13 @@ module "storage" {
   app_name   = var.app_name
   location     = var.region
 }
+
+module "secrets" {
+  source     = "../../modules/secrets"
+  project_id = var.project_id
+  app_name   = var.app_name
+  secrets = {
+    db_password = var.db_password
+    api_key     = var.api_key
+    }
+}

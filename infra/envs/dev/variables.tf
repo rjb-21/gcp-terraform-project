@@ -4,8 +4,13 @@ variable "project_id" {
 }
 
 variable "region" {
-  type    = string
-  default = "europe-central2"
+  description = "Region for SQL etc."
+  type        = string
+}
+
+variable "location_bucket" {
+  description = "Multiregion for bucket"
+  type        = string
 }
 
 variable "app_name" {

@@ -94,7 +94,7 @@ module "cloud_run" {
 
 module "monitoring" {
   source      = "../../modules/monitoring"
-  alert_email = "twoj_email@domena.com"
+  alert_email = "radek0101@gmail.com"
 }
 
 

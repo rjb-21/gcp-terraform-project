@@ -14,6 +14,11 @@ provider "google" {
   region  = var.region
 }
 
+module "apis" {
+  source     = "../../modules/apis"
+  project_id = var.project_id
+}
+
 module "storage" {
   source     = "../../modules/storage"
   project_id = var.project_id

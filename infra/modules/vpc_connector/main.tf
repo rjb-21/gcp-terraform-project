@@ -1,5 +1,5 @@
 resource "google_vpc_access_connector" "connector" {
-  name         = var.name
+  name         = "${var.name}-${var.environment}"
   project      = var.project_id
   region       = var.region
   network      = var.network

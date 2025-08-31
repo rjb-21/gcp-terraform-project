@@ -1,5 +1,5 @@
 resource "google_cloud_run_v2_service" "app" {
-  name     = "helloworld"
+  name     = "helloworld-${var.environment}"
   location = var.region
 
   deletion_protection = false

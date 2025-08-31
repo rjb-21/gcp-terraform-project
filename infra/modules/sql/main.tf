@@ -1,5 +1,5 @@
 resource "google_compute_global_address" "private_ip_range" {
-  name          = "${var.app_name}-private-ip-range"
+  name          = "${var.app_name}-private-ip-range-${var.environment}"
   purpose       = "VPC_PEERING"
   address_type  = "INTERNAL"
   prefix_length = 16
@@ -13,10 +13,12 @@ resource "google_service_networking_connection" "private_vpc_connection" {
 }
 
 resource "google_sql_database_instance" "db" {
-  name             = "${var.app_name}-db"
+  name             = "${var.app_name}-db-${var.environment}"
   project          = var.project_id
   region           = var.region
   database_version = var.db_version
+
+  deletion_protection = false
 
   settings {
     tier = var.db_tier
@@ -37,7 +39,7 @@ resource "google_sql_user" "db_user" {
 }
 
 resource "google_secret_manager_secret" "db_password" {
-  secret_id = "${var.app_name}-db-password"
+  secret_id = "${var.app_name}-db-password-${var.environment}"
   project   = var.project_id
 
   replication {

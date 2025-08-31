@@ -36,3 +36,7 @@ variable "service_account_email" {
   type        = string
   description = "Service account used by Cloud Run"
 }
+
+variable "environment" {
+  type = string
+}

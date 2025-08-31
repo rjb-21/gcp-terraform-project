@@ -38,3 +38,7 @@ variable "network" {
   type        = string
 }
 
+variable "environment" {
+  type = string
+}
+

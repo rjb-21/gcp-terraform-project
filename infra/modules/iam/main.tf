@@ -6,8 +6,12 @@ variable "app_name" {
   type = string
 }
 
+variable "environment" {
+  type = string
+}
+
 resource "google_service_account" "app_sa" {
-  account_id   = "${var.app_name}-sa"
+  account_id   = "${var.app_name}-${var.environment}"
   display_name = "Service account for ${var.app_name}"
 }
 

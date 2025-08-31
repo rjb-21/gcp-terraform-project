@@ -94,7 +94,7 @@ module "cloud_run" {
   image                       = "gcr.io/cloudrun/hello"
   db_instance_connection_name = module.sql.db_instance_connection_name
   db_user                     = "appuser"
-  db_password_secret_name     = "terraform-helloworld-app-db-password-dev"
+  db_password_secret_name     = "terraform-helloworld-app-db-password-prod"
   vpc_connector               = module.vpc_connector.name
   service_account_email       = module.iam.app_sa_email
   environment                 = var.environment

@@ -22,3 +22,7 @@ variable "ip_cidr_range" {
   description = "CIDR range for connectora"
   default     = "10.8.0.0/28"
 }
+
+variable "environment" {
+  type = string
+}

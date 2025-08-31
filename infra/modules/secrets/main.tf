@@ -11,9 +11,13 @@ variable "secrets" {
   type        = map(string)
 }
 
+variable "environment" {
+  type = string
+}
+
 resource "google_secret_manager_secret" "secrets" {
   for_each  = var.secrets
-  secret_id = "${var.app_name}-${each.key}"
+  secret_id = "${var.app_name}-${each.key}-${var.environment}"
   project   = var.project_id
 
   replication {
@@ -30,3 +34,5 @@ resource "google_secret_manager_secret_version" "secrets" {
 output "secrets_ids" {
   value = { for k, v in google_secret_manager_secret.secrets : k => v.id }
 }
+
+

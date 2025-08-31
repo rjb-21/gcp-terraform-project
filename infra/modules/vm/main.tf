@@ -1,5 +1,5 @@
 resource "google_compute_firewall" "iap_ssh" {
-  name    = "${var.app_name}-allow-iap-ssh"
+  name    = "${var.app_name}-allow-iap-ssh-${var.environment}"
   network = var.network
   project = var.project_id
 
@@ -15,7 +15,7 @@ resource "google_compute_firewall" "iap_ssh" {
 
 
 resource "google_compute_instance" "vm" {
-  name         = "${var.app_name}-vm"
+  name         = "${var.app_name}-vm-${var.environment}"
   project      = var.project_id
   zone         = var.zone
   machine_type = var.machine_type

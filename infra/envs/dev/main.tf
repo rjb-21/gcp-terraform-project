@@ -92,5 +92,9 @@ module "cloud_run" {
   service_account_email       = module.iam.app_sa_email
 }
 
+module "monitoring" {
+  source      = "../../modules/monitoring"
+  alert_email = "twoj_email@domena.com"
+}
 
 

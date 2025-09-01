@@ -13,4 +13,5 @@ Technologies:
 - Cloud Run (for docker image)
 
 Running app:
+
 <img width="1182" height="652" alt="image" src="https://github.com/user-attachments/assets/7baedae9-0632-4ecc-8fe4-f681b3adc4fe" />

@@ -5,12 +5,12 @@ GCP project to learn building infrastructure using IaC (Terraform)
 Technologies:
 - Terraform - IaC
 - GCP - Platform
+- Cloud Run
 - Cloud SQL
 - VPC
 - Secret Manager
 - GSC
 - Monitoring + Alerting
-- Cloud Run (for docker image)
 
 Running app:
 
